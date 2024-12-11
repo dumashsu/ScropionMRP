@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data-sources>
+	<data-source id="oracle_thin-1355970477695-569177282" provider="oracle" driver="oracle_thin" name="Oracle Thin - pcitdb" create-date="1355970477695" save-password="true" show-system-objects="true" read-only="false">
+		<connection host="ch-mattestdb03.pouchen.com" port="1521" server="" database="pcitdb" url="jdbc:oracle:thin:@//ch-mattestdb03.pouchen.com:1521/pcitdb" user="pcitest" password="EAwIIlNKUB4IGxVe9g==" type="dev">
+			<property name="@dbeaver-sid-service@" value="SERVICE"/>
+			<property name="@dbeaver-driver-type@" value="THIN"/>
+			<property name="@dbeaver-connection-type@" value="BASIC"/>
+			<property name="@dbeaver-check-schema-content@" value="true"/>
+			<property name="@dbeaver-always-show-dba@" value="false"/>
+		</connection>
+	</data-source>
+</data-sources>

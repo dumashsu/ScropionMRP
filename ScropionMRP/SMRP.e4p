@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Project SYSTEM "Project-5.1.dtd">
+<!-- eric project file for project SMRP -->
+<!-- Saved: 2019-07-10, 22:27:50 -->
+<!-- Copyright (C) 2019 ,  -->
+<Project version="5.1">
+  <Language>en_US</Language>
+  <Hash>02ecf0d2ef83b682159ca801b8dd8d7b2fa82c0f</Hash>
+  <ProgLanguage mixed="0">Python3</ProgLanguage>
+  <ProjectType>PyQt5</ProjectType>
+  <Version>0.1</Version>
+  <Author></Author>
+  <Email></Email>
+  <Eol index="0"/>
+  <Sources>
+    <Source>BOM系統/BOM系統程式畫面及規劃說明.odt</Source>
+    <Source>__init__.py</Source>
+    <Source>db.py</Source>
+    <Source>gv.py</Source>
+    <Source>udef_object.py</Source>
+    <Source>系統模組/BOM/__init__.py</Source>
+    <Source>系統模組/BOM/p_brandm.py</Source>
+    <Source>系統模組/BOM/p_customm.py</Source>
+    <Source>系統模組/UI/UI_Button.ui.py</Source>
+    <Source>系統模組/UI/UI_Vendorm.ui.py</Source>
+    <Source>系統模組/UI/UI_matm.ui.py</Source>
+    <Source>系統模組/UI/tt.py</Source>
+    <Source>系統模組/UI/ui_colorm.ui.py</Source>
+    <Source>系統模組/data/systeminstall.py</Source>
+    <Source>系統模組/db.py</Source>
+    <Source>系統模組/gv.py</Source>
+    <Source>系統模組/mainmenu.py</Source>
+    <Source>系統模組/p_colorm.py</Source>
+    <Source>系統模組/p_exmple.py</Source>
+    <Source>系統模組/p_groupuser.py</Source>
+    <Source>系統模組/p_kindd.py</Source>
+    <Source>系統模組/p_kindm.py</Source>
+    <Source>系統模組/p_matm.py</Source>
+    <Source>系統模組/p_modulem.py</Source>
+    <Source>系統模組/p_program.py</Source>
+    <Source>系統模組/p_userlimited.py</Source>
+    <Source>系統模組/p_userm.py</Source>
+    <Source>系統模組/p_vendorm.py</Source>
+    <Source>系統模組/udef_object.py</Source>
+  </Sources>
+  <Forms>
+    <Form>系統模組/UI/UI_Button.ui</Form>
+    <Form>系統模組/UI/UI_Vendorm.ui</Form>
+    <Form>系統模組/UI/UI_groupuser.ui</Form>
+    <Form>系統模組/UI/UI_groupuser1.ui</Form>
+    <Form>系統模組/UI/UI_mainmenu.ui</Form>
+    <Form>系統模組/UI/UI_matm.ui</Form>
+    <Form>系統模組/UI/UI_test.ui</Form>
+    <Form>系統模組/UI/UI_userlimited.ui</Form>
+    <Form>系統模組/UI/login.ui</Form>
+    <Form>系統模組/UI/p_brandm.ui</Form>
+    <Form>系統模組/UI/p_customm.ui</Form>
+    <Form>系統模組/UI/p_programd.ui</Form>
+    <Form>系統模組/UI/ui_colorm.ui</Form>
+  </Forms>
+  <Others>
+    <Other>SMRP.e4p</Other>
+    <Other>makefile</Other>
+    <Other>test.e4p</Other>
+  </Others>
+  <Vcs>
+    <VcsType>None</VcsType>
+  </Vcs>
+  <FiletypeAssociations>
+    <FiletypeAssociation pattern="*.e4p" type="OTHERS"/>
+    <FiletypeAssociation pattern="*.idl" type="INTERFACES"/>
+    <FiletypeAssociation pattern="*.md" type="OTHERS"/>
+    <FiletypeAssociation pattern="*.proto" type="PROTOCOLS"/>
+    <FiletypeAssociation pattern="*.py" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.py3" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.pyw" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.pyw3" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.qm" type="TRANSLATIONS"/>
+    <FiletypeAssociation pattern="*.qrc" type="RESOURCES"/>
+    <FiletypeAssociation pattern="*.rst" type="OTHERS"/>
+    <FiletypeAssociation pattern="*.ts" type="TRANSLATIONS"/>
+    <FiletypeAssociation pattern="*.txt" type="OTHERS"/>
+    <FiletypeAssociation pattern="*.ui" type="FORMS"/>
+    <FiletypeAssociation pattern="GNUmakefile" type="OTHERS"/>
+    <FiletypeAssociation pattern="Makefile" type="OTHERS"/>
+    <FiletypeAssociation pattern="README" type="OTHERS"/>
+    <FiletypeAssociation pattern="README.*" type="OTHERS"/>
+    <FiletypeAssociation pattern="makefile" type="OTHERS"/>
+  </FiletypeAssociations>
+</Project>

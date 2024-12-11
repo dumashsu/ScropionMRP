@@ -1,0 +1,1987 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.1-beta" last-position="0,1548" last-zoom="1.15"
+	 default-schema="public" default-owner="postgres">
+<role name="twsc_card"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<role name="testdb"
+      superuser="true"
+      createdb="true"
+      createrole="true"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<role name="blog"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<database name="testdb" encoding="UTF8" lc-collate="en_US.UTF-8" lc-ctype="en_US.UTF-8">
+	<role name="postgres"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<sequence name="brandm_pk_brandm_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<sequence name="brandm_modify_user_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="brandm">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[brandm(品牌資料)]]></comment>
+	<position x="920" y="1078"/>
+	<column name="pk_brandm" not-null="true" sequence="public.brandm_pk_brandm_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_brandm(主鍵值_品牌主檔) : pk_brandm(主鍵值_品牌主檔)]]></comment>
+	</column>
+	<column name="brand_no" not-null="true">
+		<type name="character varying" length="10"/>
+		<comment><![CDATA[brand_no(品牌編號) : brand_no(品牌編號)]]></comment>
+	</column>
+	<column name="brand_nm" not-null="true">
+		<type name="character varying" length="30"/>
+		<comment><![CDATA[brand_nm(品牌名稱) : brand_nm(品牌名稱)
+]]></comment>
+	</column>
+	<column name="brand_payday" not-null="true">
+		<type name="numeric" length="3" precision="0"/>
+		<comment><![CDATA[brand_payday(收款天數) : brand_payday(收款天數)]]></comment>
+	</column>
+	<column name="delivery_address">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[delivery_address(送貨地址) : delivery_address(送貨地址)]]></comment>
+	</column>
+	<column name="pack_desc">
+		<type name="character varying" length="200"/>
+		<comment><![CDATA[pack_desc(包裝說明) : pack_desc(包裝說明)]]></comment>
+	</column>
+	<column name="modify_user" not-null="true" sequence="public.brandm_modify_user_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[modify_USER(異動人) : modify_USER(異動人)]]></comment>
+	</column>
+	<column name="modify_dt">
+		<type name="character varying" length="23"/>
+		<comment><![CDATA[modify_dt(異動時間) : modify_dt(異動時間)
+currentDateTime().toString('yyyy/MM/dd HH:mm:ss:zzz')]]></comment>
+	</column>
+	<constraint name="brandm_pkey" type="pk-constr" table="public.brandm">
+		<columns names="pk_brandm" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="brandm_brand_no_key" type="uq-constr" table="public.brandm">
+		<columns names="brand_no" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="colorm_pk_colorm_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<sequence name="colorm_modify_user_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="colorm">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[colorm(顏色主檔) : COLORM(顏色主檔)]]></comment>
+	<position x="940" y="1758"/>
+	<column name="pk_colorm" not-null="true" sequence="public.colorm_pk_colorm_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_colorm(主鍵值_顏色主檔) : pk_colorm(主鍵值_顏色主檔)]]></comment>
+	</column>
+	<column name="color_no" not-null="true">
+		<type name="character varying" length="10"/>
+		<comment><![CDATA[color_no(顏色代號) : color_no(顏色代號)]]></comment>
+	</column>
+	<column name="color_nm" not-null="true">
+		<type name="character varying" length="200"/>
+		<comment><![CDATA[color_nm(顏色名稱) : color_nm(顏色名稱)
+]]></comment>
+	</column>
+	<column name="color_nm_en">
+		<type name="character varying" length="200"/>
+		<comment><![CDATA[color_nm_en(英文顏色名稱) : color_nm_en(英文顏色名稱)]]></comment>
+	</column>
+	<column name="modify_user" not-null="true" sequence="public.colorm_modify_user_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[modify_USER(異動人) : modify_USER(異動人)]]></comment>
+	</column>
+	<column name="modify_dt" not-null="true">
+		<type name="character varying" length="23"/>
+		<comment><![CDATA[modify_dt(異動時間) : modify_dt(異動時間)
+currentDateTime().toString('yyyy/MM/dd HH:mm:ss:zzz')]]></comment>
+	</column>
+	<constraint name="pk_colorm" type="pk-constr" table="public.colorm">
+		<columns names="pk_colorm,color_no" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="colorm_pk_colorm_key" type="uq-constr" table="public.colorm">
+		<columns names="pk_colorm" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="customd_pk_customd_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="customd">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[customd(客戶連絡人明細檔)]]></comment>
+	<position x="900" y="298"/>
+	<column name="pk_customd" not-null="true" sequence="public.customd_pk_customd_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_customd(主鍵值_客戶連絡人明細檔) : pk_customd(主鍵值_客戶連絡人明細檔)]]></comment>
+	</column>
+	<column name="pk_customm" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_customm(主鍵值_客戶主檔) : pk_customm(主鍵值_客戶主檔)]]></comment>
+	</column>
+	<column name="customd_contact" not-null="true">
+		<type name="character varying" length="30"/>
+		<comment><![CDATA[customd_contact(客戶連絡人) : customd_contractor(客戶連絡人)]]></comment>
+	</column>
+	<constraint name="customd_pkey" type="pk-constr" table="public.customd">
+		<columns names="pk_customd" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="customdbrandm_pk_custombrandm_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="customdbrandm">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[customdbrandm]]></comment>
+	<position x="920" y="858"/>
+	<column name="pk_custombrandm" not-null="true" sequence="public.customdbrandm_pk_custombrandm_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_custombrandm(主鍵值_客戶明細品牌資料) : pk_custombrandm(主鍵值_客戶明細品牌資料)]]></comment>
+	</column>
+	<column name="pk_customd" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_customd(主鍵值_客戶連絡人明細檔) : pk_customd(主鍵值_客戶連絡人明細檔)]]></comment>
+	</column>
+	<column name="pk_brandm" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_brandm(主鍵值_品牌主檔) : pk_brandm(主鍵值_品牌主檔)]]></comment>
+	</column>
+	<constraint name="customdbrandm_pkey" type="pk-constr" table="public.customdbrandm">
+		<columns names="pk_custombrandm" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="customm_pk_customm_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<sequence name="customm_modify_user_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="customm">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[customm(客戶主檔)]]></comment>
+	<position x="900" y="18"/>
+	<column name="pk_customm" not-null="true" sequence="public.customm_pk_customm_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_customm(主鍵值_客戶主檔) : pk_customm(主鍵值_客戶主檔)]]></comment>
+	</column>
+	<column name="customm_no" not-null="true">
+		<type name="character varying" length="15"/>
+		<comment><![CDATA[customm_no(客戶編號) : customm_no(客戶編號)]]></comment>
+	</column>
+	<column name="customm_nm" not-null="true">
+		<type name="character varying" length="20"/>
+		<comment><![CDATA[customm_nm(客戶簡稱) : customm_nm(客戶簡稱)]]></comment>
+	</column>
+	<column name="customm_type" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[customm_type(客戶類別) : custom_type(客戶類別)]]></comment>
+	</column>
+	<column name="customm_f_nm">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[customm_f_nm(客戶全名) : customm_f_nm(客戶全名)]]></comment>
+	</column>
+	<column name="customm_f_nm_en">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[customm_f_nm_en(客戶英文名稱) : customm_f_nm_en(客戶英文名稱)]]></comment>
+	</column>
+	<column name="customm_manager">
+		<type name="character varying" length="20"/>
+		<comment><![CDATA[customm_manager(負責人) : customm_manager(負責人)]]></comment>
+	</column>
+	<column name="customm_stopdate">
+		<type name="character" length="8"/>
+		<comment><![CDATA[customm_stopdate(停用日期) : customm_stopdate(停用日期)]]></comment>
+	</column>
+	<column name="cutsomm_address">
+		<type name="character varying" length="200"/>
+		<comment><![CDATA[cutsomm_address(客戶地址) : cutsomm_address(客戶地址)]]></comment>
+	</column>
+	<column name="modify_user" not-null="true" sequence="public.customm_modify_user_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[modify_USER(異動人) : modify_USER(異動人)]]></comment>
+	</column>
+	<column name="modify_dt">
+		<type name="character varying" length="23"/>
+		<comment><![CDATA[modify_dt(異動時間) : modify_dt(異動時間)
+currentDateTime().toString('yyyy/MM/dd HH:mm:ss:zzz')]]></comment>
+	</column>
+	<constraint name="customm_pkey" type="pk-constr" table="public.customm">
+		<columns names="pk_customm" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="customm_customm_no_key" type="uq-constr" table="public.customm">
+		<columns names="customm_no" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="customs_pk_customs_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="customs">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[customs(連絡人明細資料)]]></comment>
+	<position x="900" y="538"/>
+	<column name="pk_customs" not-null="true" sequence="public.customs_pk_customs_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_customs(連絡人明細資料) : pk_customs(連絡人明細資料)]]></comment>
+	</column>
+	<column name="pk_customd" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_customd(主鍵值_客戶連絡人明細檔) : pk_customd(主鍵值_客戶連絡人明細檔)]]></comment>
+	</column>
+	<column name="pk_s_kindd" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_kindd(主鍵值_類別明細) : pk_s_kindd(主鍵值_類別明細)]]></comment>
+	</column>
+	<column name="customs_nm" not-null="true">
+		<type name="character varying" length="30"/>
+		<comment><![CDATA[customs_nm(連絡人明細) : customs_nm(連絡人明細)]]></comment>
+	</column>
+	<constraint name="customs_pkey" type="pk-constr" table="public.customs">
+		<columns names="pk_customs" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="matm_pk_matm_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<sequence name="matm_modify_user_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="matm">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[matm(材料主檔) : MATM(材料主檔)]]></comment>
+	<position x="600" y="1278"/>
+	<column name="pk_matm" not-null="true" sequence="public.matm_pk_matm_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_matm(主鍵值_材料主檔) : pk_matm(材料主檔)]]></comment>
+	</column>
+	<column name="mat_no" not-null="true">
+		<type name="character varying" length="10"/>
+		<comment><![CDATA[mat_no(材料代號) : mat_no(材料代號)]]></comment>
+	</column>
+	<column name="mat_nm" not-null="true">
+		<type name="character varying" length="300"/>
+		<comment><![CDATA[mat_nm(材料名稱) : mat_nm(材料名稱)]]></comment>
+	</column>
+	<column name="mat_nm_en" not-null="true">
+		<type name="character varying" length="300"/>
+		<comment><![CDATA[mat_nm_en(材料英文名稱) : mat_nm_en(材料英文名稱)]]></comment>
+	</column>
+	<column name="pk_colorm" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_colorm(主鍵值_顏色主檔) : pk_colorm(主鍵值_顏色主檔)]]></comment>
+	</column>
+	<column name="pk_s_kindm" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_kindm(主鍵值_KINDM) : pk_s_kindm(主鍵值_KINDM)]]></comment>
+	</column>
+	<column name="preprdmat_mk">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[reprdmat_mk(加工材料) : reprdmat_mk(加工材料)]]></comment>
+	</column>
+	<column name="exceed_rec_mk">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[exceed_rec_mk(超交允收) : exceed_rec_mk(超交允收)]]></comment>
+	</column>
+	<column name="onway_qty">
+		<type name="numeric" length="20" precision="6"/>
+		<comment><![CDATA[onway_qty(在途量) : onway_qty(在途量)]]></comment>
+	</column>
+	<column name="safestk_qty">
+		<type name="numeric" length="20" precision="6"/>
+		<comment><![CDATA[safestk_qty(安全存量) : safestk_qty(安全存量)]]></comment>
+	</column>
+	<column name="purchase_day">
+		<type name="numeric" length="3" precision="0"/>
+		<comment><![CDATA[purchase_day(購買週期) : purchase_day(購買週期)]]></comment>
+	</column>
+	<column name="unit_price">
+		<type name="numeric" length="11" precision="4"/>
+		<comment><![CDATA[unit_price(單價) : unit_price(單價)]]></comment>
+	</column>
+	<column name="stop_user">
+		<type name="character varying" length="18"/>
+		<comment><![CDATA[stop_user(停用人) : stop_user(停用人)]]></comment>
+	</column>
+	<column name="stop_date">
+		<type name="character varying" length="8"/>
+		<comment><![CDATA[stop_date(停用日期) : stop_date(停用日期)]]></comment>
+	</column>
+	<column name="modify_user" not-null="true" sequence="public.matm_modify_user_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[modify_USER(異動人) : modify_USER(異動人)]]></comment>
+	</column>
+	<column name="modify_dt" not-null="true">
+		<type name="character varying" length="23"/>
+		<comment><![CDATA[modify_dt(異動時間) : modify_dt(異動時間)
+currentDateTime().toString('yyyy/MM/dd HH:mm:ss:zzz')]]></comment>
+	</column>
+	<constraint name="pk_matidm" type="pk-constr" table="public.matm">
+		<columns names="pk_matm" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="matm_mat_no_key" type="uq-constr" table="public.matm">
+		<columns names="mat_no" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="matvendorm_pk_matvendorm_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="matvendorm">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[matvendorm(材料供應商主檔)]]></comment>
+	<position x="640" y="1698"/>
+	<column name="pk_matvendorm" not-null="true" sequence="public.matvendorm_pk_matvendorm_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_matvendorm(主鍵值_材料供應商主檔) : pk_matvendorm(主鍵值_材料供應商主檔)]]></comment>
+	</column>
+	<column name="pk_vendorm" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_vendorm(主鍵值_供應商主檔) : pk_vendorm(主鍵值_供應商主檔)]]></comment>
+	</column>
+	<column name="pk_matm" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_matm(主鍵值_材料主檔) : pk_matm(材料主檔)]]></comment>
+	</column>
+	<constraint name="matvendorm_pkey" type="pk-constr" table="public.matvendorm">
+		<columns names="pk_matvendorm" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="matvendorm_pk_vendorm_key" type="uq-constr" table="public.matvendorm">
+		<columns names="pk_vendorm" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="matvendorm_pk_matm_key" type="uq-constr" table="public.matvendorm">
+		<columns names="pk_matm" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="partm_pk_partm_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<sequence name="partm_modify_user_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="partm">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[partm(部位主檔) : PARTM(部位主檔)]]></comment>
+	<position x="640" y="1038"/>
+	<column name="pk_partm" not-null="true" sequence="public.partm_pk_partm_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_partm(主鍵值_部位主檔) : pk_partm(主鍵值_部位主檔)]]></comment>
+	</column>
+	<column name="pk_s_kindd" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_kindd(主鍵值_類別明細) : pk_s_kindd(主鍵值_類別明細)]]></comment>
+	</column>
+	<column name="part_no" not-null="true">
+		<type name="character varying" length="10"/>
+		<comment><![CDATA[part_no(部位代號) : part_no(部位代號)]]></comment>
+	</column>
+	<column name="part_nm" not-null="true">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[part_nm(部位名稱) : part_nm(部位名稱)]]></comment>
+	</column>
+	<column name="part_nm_en">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[part_nm_en(英文部位名稱) : part_nm_en(英文部位名稱)]]></comment>
+	</column>
+	<column name="part_mk">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[part_mk(主副料註記) : part_mk(主副料註記)]]></comment>
+	</column>
+	<column name="part_addrte_mk">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[part_addrte_mk(加成註記) : part_addrte_mk(加成註記)]]></comment>
+	</column>
+	<column name="stop_date">
+		<type name="character varying" length="8"/>
+		<comment><![CDATA[stop_date(停用日期) : stop_date(停用日期)]]></comment>
+	</column>
+	<column name="modify_user" not-null="true" sequence="public.partm_modify_user_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[modify_USER(異動人) : modify_USER(異動人)]]></comment>
+	</column>
+	<column name="modify_dt" not-null="true">
+		<type name="character varying" length="23"/>
+		<comment><![CDATA[modify_dt(異動時間) : modify_dt(異動時間)
+currentDateTime().toString('yyyy/MM/dd HH:mm:ss:zzz')]]></comment>
+	</column>
+	<constraint name="pk_partm" type="pk-constr" table="public.partm">
+		<columns names="pk_partm" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="partm_pk_s_kindd_key" type="uq-constr" table="public.partm">
+		<columns names="pk_s_kindd" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="partm_part_no_key" type="uq-constr" table="public.partm">
+		<columns names="part_no" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="preprdmatd_pk_preprdmatd_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<sequence name="preprdmatd_modify_user_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="preprdmatd">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[preprdmatd(加工材料結構明細檔) : PREMATIDM(加工材料結構檔)]]></comment>
+	<position x="920" y="1458"/>
+	<column name="pk_preprdmatd" not-null="true" sequence="public.preprdmatd_pk_preprdmatd_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_preprdmatd(主鍵值_加工材料結構明細檔) : pk_preprdmatd(主鍵值_加工材料結構明細檔)]]></comment>
+	</column>
+	<column name="pk_matm" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_matm(主鍵值_材料主檔) : pk_matm(材料主檔)]]></comment>
+	</column>
+	<column name="preprd_rate" not-null="true">
+		<type name="numeric" length="6" precision="4"/>
+		<comment><![CDATA[preprd_rate(加工比率) : preprd_rate(加工比率)]]></comment>
+	</column>
+	<column name="preprd_buymat_mk" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[preprd_buymat_mk(代料) : preprd_buymat_mk(代料)]]></comment>
+	</column>
+	<column name="modify_user" not-null="true" sequence="public.preprdmatd_modify_user_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[modify_USER(異動人) : modify_USER(異動人)]]></comment>
+	</column>
+	<column name="modify_dt" not-null="true">
+		<type name="character varying" length="23"/>
+		<comment><![CDATA[modify_dt(異動時間) : modify_dt(異動時間)
+currentDateTime().toString('yyyy/MM/dd HH:mm:ss:zzz')]]></comment>
+	</column>
+	<column name="pk_preprdmatm" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_preprdmatm(主鍵值_加工材料結構主檔) : pk_preprdmatm(主鍵值_加工材料結構主檔)]]></comment>
+	</column>
+	<constraint name="pk_prematidm" type="pk-constr" table="public.preprdmatd">
+		<columns names="pk_preprdmatd" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="preprdmatd_pk_matm_key" type="uq-constr" table="public.preprdmatd">
+		<columns names="pk_matm" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="preprdmatd_pk_preprdmatm_key" type="uq-constr" table="public.preprdmatd">
+		<columns names="pk_preprdmatm" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="preprdmatm_pk_preprdmatm_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<sequence name="preprdmatm_modify_user_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="preprdmatm">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[preprdmatm(加工材料結樠主檔) : preprdmatm(加工材料結樠主檔)]]></comment>
+	<position x="940" y="1278"/>
+	<column name="pk_preprdmatm" not-null="true" sequence="public.preprdmatm_pk_preprdmatm_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_preprdmatm(主鍵值_加工材料結構主檔) : pk_preprdmatm(主鍵值_加工材料結構主檔)]]></comment>
+	</column>
+	<column name="pk_matm" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_matm(主鍵值_材料主檔) : pk_matm(材料主檔)]]></comment>
+	</column>
+	<column name="modify_user" not-null="true" sequence="public.preprdmatm_modify_user_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[modify_USER(異動人) : modify_USER(異動人)]]></comment>
+	</column>
+	<column name="modify_dt">
+		<type name="character varying" length="23"/>
+		<comment><![CDATA[modify_dt(異動時間) : modify_dt(異動時間)
+currentDateTime().toString('yyyy/MM/dd HH:mm:ss:zzz')]]></comment>
+	</column>
+	<constraint name="pk_prematidd" type="pk-constr" table="public.preprdmatm">
+		<columns names="pk_preprdmatm" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="preprdmatm_pk_matm_key" type="uq-constr" table="public.preprdmatm">
+		<columns names="pk_matm" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="sizes_pk_sizes_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="sizes">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[SIZES : SIZES(SIZE明細檔)]]></comment>
+	<position x="660" y="858"/>
+	<column name="pk_sizes" not-null="true" sequence="public.sizes_pk_sizes_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_sizes(主鍵值_SIZE主檔) : pk_sizes(主鍵值_SIZE主檔)]]></comment>
+	</column>
+	<column name="pk_s_kindd" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_kindd(主鍵值_類別明細) : pk_s_kindd(主鍵值_類別明細)]]></comment>
+	</column>
+	<column name="size_run" not-null="true">
+		<type name="character varying" length="20"/>
+		<comment><![CDATA[size_run(SIZE編號) : size_run(SIZE編號)]]></comment>
+	</column>
+	<column name="size_idx" not-null="true">
+		<type name="numeric" length="8" precision="2"/>
+		<comment><![CDATA[size_idx(SIZE排序號) : size_idx(SIZE排序號)]]></comment>
+	</column>
+	<constraint name="pk_sizes" type="pk-constr" table="public.sizes">
+		<columns names="pk_sizes" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="sizes_pk_s_kindd_key" type="uq-constr" table="public.sizes">
+		<columns names="pk_s_kindd" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="vendord_pk_vendord_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="vendord">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[vendord(供應商明細)]]></comment>
+	<position x="620" y="498"/>
+	<column name="pk_vendord" not-null="true" sequence="public.vendord_pk_vendord_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_vendord(主鍵值_供應商明細檔) : pk_vendord(主鍵值_供應商明細檔)]]></comment>
+	</column>
+	<column name="pk_vendorm" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_vendorm(主鍵值_供應商主檔) : pk_vendorm(主鍵值_供應商主檔)]]></comment>
+	</column>
+	<column name="vendord_contact">
+		<type name="character varying" length="30"/>
+		<comment><![CDATA[vendord_contact(連絡人)]]></comment>
+	</column>
+	<constraint name="vendord_pkey" type="pk-constr" table="public.vendord">
+		<columns names="pk_vendord" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="vendorm_pk_vendorm_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<sequence name="vendorm_modify_user_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="vendorm">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[vendorm(供應商主檔) : VENDORM(供應商主檔)]]></comment>
+	<position x="600" y="38"/>
+	<column name="pk_vendorm" not-null="true" sequence="public.vendorm_pk_vendorm_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_vendorm(主鍵值_供應商主檔) : pk_vendorm(主鍵值_供應商主檔)]]></comment>
+	</column>
+	<column name="vendorm_no" not-null="true">
+		<type name="character varying" length="10"/>
+		<comment><![CDATA[vendorm_no(供應商編號) : 供應商編號]]></comment>
+	</column>
+	<column name="vendorm_nm" not-null="true">
+		<type name="character varying" length="20"/>
+		<comment><![CDATA[vendorm_nm(供應商簡稱) : vendorm_nm(供應商簡稱)]]></comment>
+	</column>
+	<column name="vendorm_f_nm">
+		<type name="character varying" length="50"/>
+		<comment><![CDATA[vendorm_f_nm(供應商全名) : 供應商全名]]></comment>
+	</column>
+	<column name="vendorm_uni_no">
+		<type name="character varying" length="20"/>
+		<comment><![CDATA[vendorm_uni_no(統一編號) : 統一編號]]></comment>
+	</column>
+	<column name="vendorm_type" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[vendorm_type(供應商類別) : 供應商類別]]></comment>
+	</column>
+	<column name="vendorm_kind" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[vendorm_kind(供應商性質) : 供應商性質]]></comment>
+	</column>
+	<column name="vendorm_purchasepolicy">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[vendorm_purchasepolicy(採購政策) : 採購政策]]></comment>
+	</column>
+	<column name="vendorm_tradeticket">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[vendorm_tradeticket(交易票據) : 交易票據]]></comment>
+	</column>
+	<column name="vendorm_ticketrate">
+		<type name="numeric" length="5" precision="2"/>
+		<comment><![CDATA[vendorm_ticketrate(票據比率) : 票據比率]]></comment>
+	</column>
+	<column name="vendorm_taxsource">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[vendorm_taxsource(稅金來源) : 稅金來源]]></comment>
+	</column>
+	<column name="vendorm_taxrate">
+		<type name="numeric" length="5" precision="2"/>
+		<comment><![CDATA[vendorm_taxrate(稅金比率) : 稅金比率]]></comment>
+	</column>
+	<column name="vendorm_deductrate">
+		<type name="numeric" length="5" precision="2"/>
+		<comment><![CDATA[vendorm_deductrate(扣款比率) : 扣款比率]]></comment>
+	</column>
+	<column name="vendorm_payment">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[vendorm_payment(交易方式) : 交易方式]]></comment>
+	</column>
+	<column name="vendorm_payday">
+		<type name="numeric" length="4" precision="0"/>
+		<comment><![CDATA[vendorm_payday(付款天數) : 付款天數]]></comment>
+	</column>
+	<column name="vendorm_coin">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[vendorm_coin(交易幣別) : 交易幣別]]></comment>
+	</column>
+	<column name="vendorm_manager">
+		<type name="character varying" length="20"/>
+		<comment><![CDATA[vendorm_manager(負責人) : 負責人]]></comment>
+	</column>
+	<column name="vendorm_expirydate">
+		<type name="character varying" length="8"/>
+		<comment><![CDATA[vendorm_expirydate(停用日期) : 停用日期]]></comment>
+	</column>
+	<column name="vendorm_sourcemark" not-null="true">
+		<type name="character" length="1"/>
+		<comment><![CDATA[vendorm_sourcemark(資料來源) : 資料來源]]></comment>
+	</column>
+	<column name="vendorm_address">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[vendorm_address(地址) : vendorm_address(地址)]]></comment>
+	</column>
+	<column name="modify_user" not-null="true" sequence="public.vendorm_modify_user_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[modify_USER(異動人) : modify_USER(異動人)]]></comment>
+	</column>
+	<column name="modify_dt" not-null="true">
+		<type name="public.modify_dt" length="23"/>
+		<comment><![CDATA[modify_dt(異動時間) : modify_dt(異動時間)
+currentDateTime().toString('yyyy/MM/dd HH:mm:ss:zzz')]]></comment>
+	</column>
+	<constraint name="pk_vendorm" type="pk-constr" table="public.vendorm">
+		<columns names="pk_vendorm" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="vendorm_vendorm_no_key" type="uq-constr" table="public.vendorm">
+		<columns names="vendorm_no" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="vendormm_pk_vendromm_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<sequence name="vendors_pk_vendors_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="vendors">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[vendors(連絡人明細資料)]]></comment>
+	<position x="620" y="678"/>
+	<column name="pk_vendors" not-null="true" sequence="public.vendors_pk_vendors_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_vendors(主鍵值_連絡人明細資料) : pk_vendors(主鍵值_連絡人明細資料)]]></comment>
+	</column>
+	<column name="pk_vendord" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_vendord(主鍵值_供應商明細檔) : pk_vendord(主鍵值_供應商明細檔)]]></comment>
+	</column>
+	<column name="pk_s_kindm" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_kindm(主鍵值_KINDM) : pk_s_kindm(主鍵值_KINDM)]]></comment>
+	</column>
+	<column name="vendors_nm">
+		<type name="character varying" length="30"/>
+		<comment><![CDATA[vendors_nm(連絡人明細資料) : vendors_nm(連絡人明細資料)]]></comment>
+	</column>
+	<constraint name="vendors_pkey" type="pk-constr" table="public.vendors">
+		<columns names="pk_vendors" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="id_pk_customm_customd_contract" table="public.customd"
+	 concurrent="false" unique="true" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="customd_contact"/>
+		</idxelement>
+</index>
+
+<index name="id_matm" table="public.matm"
+	 concurrent="false" unique="true" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="pk_matm"/>
+		</idxelement>
+		<idxelement use-sorting="false">
+			<column name="pk_colorm"/>
+		</idxelement>
+</index>
+
+<index name="id_partm" table="public.partm"
+	 concurrent="false" unique="true" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="part_no"/>
+		</idxelement>
+</index>
+
+<index name="id_preprdmatd" table="public.preprdmatd"
+	 concurrent="false" unique="true" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="pk_matm"/>
+		</idxelement>
+</index>
+
+<index name="id_sizes" table="public.sizes"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="pk_s_kindd"/>
+		</idxelement>
+</index>
+
+<sequence name="s_flowchart_pk_s_flowchart_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="s_flowchart">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[S_Flowchart(流程基本資料檔)]]></comment>
+	<position x="20" y="278"/>
+	<column name="pk_s_flowchart" not-null="true" sequence="public.s_flowchart_pk_s_flowchart_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_flowchart(主鍵值_流程基本資料主檔) : pk_s_flowchart(主鍵值_流程基本資料主檔)]]></comment>
+	</column>
+	<column name="flowchart_no">
+		<type name="character varying" length="10"/>
+		<comment><![CDATA[flowchart_no(流程編號) : flowchart_no(流程編號)]]></comment>
+	</column>
+	<column name="flowchart_nm" not-null="true">
+		<type name="character varying" length="50"/>
+		<comment><![CDATA[flowchart_nm(流程名稱) : flowchart_nm(流程名稱)]]></comment>
+	</column>
+	<column name="flowchart_nm_en">
+		<type name="character varying" length="50"/>
+		<comment><![CDATA[flowchart_nm_en(流程英文名稱) : flowchart_nm_en(流程英文名稱)]]></comment>
+	</column>
+	<column name="flowchart_valid">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[flowchart_valid(生效註記) : flowchart_valid(生效註記)]]></comment>
+	</column>
+	<column name="flowchart_memo">
+		<type name="character varying" length="1000"/>
+		<comment><![CDATA[flowchart_memo(備註說明) : flowchart_memo(備註說明)]]></comment>
+	</column>
+	<column name="factory_no">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[factory_no(廠別代號) : factory_no(廠別代號) from kindd]]></comment>
+	</column>
+	<constraint name="s_flowchart_pkey" type="pk-constr" table="public.s_flowchart">
+		<columns names="pk_s_flowchart" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="s_flowchart_flowchart_no_key" type="uq-constr" table="public.s_flowchart">
+		<columns names="flowchart_no" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="s_flowchartd_pk_s_flowchartd_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="s_flowchartd">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[S_Flowchartd(流程明細檔)]]></comment>
+	<position x="40" y="498"/>
+	<column name="pk_s_flowchartd" not-null="true" sequence="public.s_flowchartd_pk_s_flowchartd_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_flowchartd(主鍵值_流程明細檔) : pk_s_flowchartd(主鍵值_流程明細檔)]]></comment>
+	</column>
+	<column name="pk_s_flowchart" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_flowchart(主鍵值_流程基本資料主檔) : pk_s_flowchart(主鍵值_流程基本資料主檔)]]></comment>
+	</column>
+	<column name="father_seq" not-null="true">
+		<type name="numeric" length="2" precision="0"/>
+		<comment><![CDATA[father_seq(父階流水號) : father_seq(父階流水號)]]></comment>
+	</column>
+	<column name="pk_userid_father" not-null="true">
+		<type name="numeric" length="0"/>
+		<comment><![CDATA[pk_userId_father(父階使用者ID) : pk_userId_father(父階使用者ID)]]></comment>
+	</column>
+	<column name="son_seq" not-null="true">
+		<type name="numeric" length="2" precision="0"/>
+		<comment><![CDATA[son_seq(子階流水號) : son_seq(子階流水號)]]></comment>
+	</column>
+	<column name="pk_s_userid_son" not-null="true">
+		<type name="numeric" length="0"/>
+		<comment><![CDATA[pk_s_userid_son(子階使用者ID) : pk_s_userid_son(子階使用者ID)]]></comment>
+	</column>
+	<column name="factory_no">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[factory_no(上階廠別代號) : factory_no(上階廠別代號)]]></comment>
+	</column>
+	<constraint name="s_flowchartd_pkey" type="pk-constr" table="public.s_flowchartd">
+		<columns names="pk_s_flowchartd" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="s_groupuserm_pk_s_groupuserm_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="s_groupuserm">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[S_GROUPUSERM(使用者群組)]]></comment>
+	<position x="320" y="1238"/>
+	<column name="pk_s_groupuserm" not-null="true" sequence="public.s_groupuserm_pk_s_groupuserm_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_groupuserm(主鍵值_使用者群組) : pk_s_groupuserm(主鍵值_使用者群組)]]></comment>
+	</column>
+	<column name="pk_s_userm" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_userm(主鍵值_使用者主檔) : pk_s_userm(主鍵值_使用者主檔)]]></comment>
+	</column>
+	<column name="pk_s_kindd" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_kindd(主鍵值_類別明細) : pk_s_kindd(主鍵值_類別明細)]]></comment>
+	</column>
+	<constraint name="s_groupuserm_pkey" type="pk-constr" table="public.s_groupuserm">
+		<columns names="pk_s_groupuserm" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="s_groupuserm_pk_s_userm_key" type="uq-constr" table="public.s_groupuserm">
+		<columns names="pk_s_userm" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="s_groupuserm_pk_s_kindd_key" type="uq-constr" table="public.s_groupuserm">
+		<columns names="pk_s_kindd" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="s_kindd_pk_s_kindd_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="s_kindd">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[S_KINDD(類別明細檔)]]></comment>
+	<position x="60" y="1078"/>
+	<column name="pk_s_kindd" not-null="true" sequence="public.s_kindd_pk_s_kindd_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_kindd(主鍵值_類別明細) : pk_s_kindd(主鍵值_類別明細)]]></comment>
+	</column>
+	<column name="pk_s_kindm" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_kindm(主鍵值_KINDM) : pk_s_kindm(主鍵值_KINDM)]]></comment>
+	</column>
+	<column name="kindd_nm">
+		<type name="character varying" length="30"/>
+		<comment><![CDATA[kindd_nm(類別明細名稱) : kindd_nm(類別明細名稱)
+EG:SKYPE/WECHAT.....]]></comment>
+	</column>
+	<column name="kindd_f_nm">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[kindd_f_nm(類別明細全名) : kindd_f_nm(類別明細全名)]]></comment>
+	</column>
+	<column name="kindd_col1">
+		<type name="character varying" length="20"/>
+		<comment><![CDATA[kindd_col1(各類別自訂使用) : kindd_col1(各類別自訂使用)]]></comment>
+	</column>
+	<column name="kindd_col2">
+		<type name="character varying" length="30"/>
+		<comment><![CDATA[kindd_col2(各註記自訂使用) : kindd_col2(各註記自訂使用)]]></comment>
+	</column>
+	<column name="kindd_col3">
+		<type name="character varying" length="50"/>
+		<comment><![CDATA[kindd_col3(各註記自訂使用) : kindd_col3(各註記自訂使用)]]></comment>
+	</column>
+	<constraint name="s_kindd_pkey" type="pk-constr" table="public.s_kindd">
+		<columns names="pk_s_kindd" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="s_kindm_pk_s_kindm_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="s_kindm">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[S_KINDM(類別主檔)]]></comment>
+	<position x="40" y="938"/>
+	<column name="pk_s_kindm" not-null="true" sequence="public.s_kindm_pk_s_kindm_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_kindm(主鍵值_KINDM) : pk_s_kindm(主鍵值_KINDM)]]></comment>
+	</column>
+	<column name="kindm_no" not-null="true">
+		<type name="character varying" length="2"/>
+		<comment><![CDATA[kindm_no(類別種類) : 00.廠別
+01.部門
+02.使用者明細檔(Mail/Line...)
+03.帳號群組明細]]></comment>
+	</column>
+	<column name="kindm_nm">
+		<type name="character varying" length="30"/>
+		<comment><![CDATA[kindm_nm(類別種類名稱) : kindm_nm(類別種類名稱)]]></comment>
+	</column>
+	<constraint name="s_kindm_pkey" type="pk-constr" table="public.s_kindm">
+		<columns names="pk_s_kindm" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="s_kindm_kindm_no_key" type="uq-constr" table="public.s_kindm">
+		<columns names="kindm_no" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="s_languagenm_pk_s_language_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="s_languagenm">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[S_Language(語言名稱檔)]]></comment>
+	<position x="40" y="1298"/>
+	<column name="pk_s_language" not-null="true" sequence="public.s_languagenm_pk_s_language_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_language(主鍵值_語言名稱檔) : pk_s_language(主鍵值_語言名稱檔)]]></comment>
+	</column>
+	<column name="language_nm" not-null="true">
+		<type name="character varying" length="10"/>
+		<comment><![CDATA[language_nm(語言名稱) : language_nm(語言名稱)]]></comment>
+	</column>
+	<constraint name="s_languagenm_pkey" type="pk-constr" table="public.s_languagenm">
+		<columns names="pk_s_language" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="s_languagenm_language_nm_key" type="uq-constr" table="public.s_languagenm">
+		<columns names="language_nm" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="s_modulem_pk_s_modulem_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<sequence name="s_modulem_modify_user_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="s_modulem">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[S_Modulem(模組資料主檔)]]></comment>
+	<position x="20" y="38"/>
+	<column name="pk_s_modulem" not-null="true" sequence="public.s_modulem_pk_s_modulem_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_modulem(主鍵值_模組資料主檔) : pk_s_modulem(主鍵值_模組資料主檔)]]></comment>
+	</column>
+	<column name="module_seq" not-null="true">
+		<type name="numeric" length="4" precision="0"/>
+		<comment><![CDATA[module_Seq(模組排序號) : module_Seq(模組排序號)]]></comment>
+	</column>
+	<column name="module_no" not-null="true">
+		<type name="character varying" length="4"/>
+		<comment><![CDATA[module_No(模組代號) : module_No(模組代號)]]></comment>
+	</column>
+	<column name="module_s_nm" not-null="true">
+		<type name="character varying" length="30"/>
+		<comment><![CDATA[module_s_nm(模組簡稱) : module_s_nm(模組簡稱)]]></comment>
+	</column>
+	<column name="module_nm" not-null="true">
+		<type name="character varying" length="50"/>
+		<comment><![CDATA[module_Nm(模組名稱) : module_Nm(模組名稱)]]></comment>
+	</column>
+	<column name="module_memo">
+		<type name="text" length="0"/>
+		<comment><![CDATA[module_memo(模組說明) : module_memo(模組說明)]]></comment>
+	</column>
+	<column name="modify_user" not-null="true" sequence="public.s_modulem_modify_user_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[modify_USER(異動人) : modify_USER(異動人)]]></comment>
+	</column>
+	<column name="modify_dt">
+		<type name="character varying" length="23"/>
+		<comment><![CDATA[modify_dt(異動時間) : modify_dt(異動時間)
+currentDateTime().toString('yyyy/MM/dd HH:mm:ss:zzz')]]></comment>
+	</column>
+	<constraint name="s_modulem_pkey" type="pk-constr" table="public.s_modulem">
+		<columns names="pk_s_modulem" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="s_modulem_module_seq_key" type="uq-constr" table="public.s_modulem">
+		<columns names="module_seq" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="s_modulem_module_no_key" type="uq-constr" table="public.s_modulem">
+		<columns names="module_no" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="s_multilanguage_pk_s_multilanguage_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="s_multilanguage">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[S_MultiLanguage(多國語言檔)]]></comment>
+	<position x="40" y="1478"/>
+	<column name="pk_s_multilanguage" not-null="true" sequence="public.s_multilanguage_pk_s_multilanguage_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_multilanguage(主鍵值_多國語言檔) : pk_s_multilanguage(主鍵值_多國語言檔)]]></comment>
+	</column>
+	<column name="pk_s_language" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_language(主鍵值_語言名稱檔) : pk_s_language(主鍵值_語言名稱檔)]]></comment>
+	</column>
+	<column name="language_source" not-null="true">
+		<type name="character varying" length="200"/>
+		<comment><![CDATA[language_source(原始語文) : language_source(原始語文)]]></comment>
+	</column>
+	<column name="language_target">
+		<type name="character varying" length="200"/>
+		<comment><![CDATA[language_target(目的語文) : language_target(目的語文)]]></comment>
+	</column>
+	<constraint name="s_multilanguage_pkey" type="pk-constr" table="public.s_multilanguage">
+		<columns names="pk_s_multilanguage" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="s_programd_pk_s_programd_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<sequence name="s_programd_modify_user_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="s_programd">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[S_Programd(模組選單明細檔)]]></comment>
+	<position x="320" y="38"/>
+	<column name="pk_s_programd" not-null="true" sequence="public.s_programd_pk_s_programd_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_programd(主鍵值_模組選單明細檔) : pk_s_programd(主鍵值_模組選單明細檔)]]></comment>
+	</column>
+	<column name="pk_s_modulem" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_modulem(主鍵值_模組資料主檔) : pk_s_modulem(主鍵值_模組資料主檔)]]></comment>
+	</column>
+	<column name="program_no">
+		<type name="character varying" length="8"/>
+		<comment><![CDATA[program_no(選單代號) : program_no(選單代號)
+前 4 碼為模組代號]]></comment>
+	</column>
+	<column name="program_seq">
+		<type name="numeric" length="4" precision="0"/>
+		<comment><![CDATA[program_seq(選單流水號) : program_seq(選單流水號)]]></comment>
+	</column>
+	<column name="program_nm">
+		<type name="character varying" length="50"/>
+		<comment><![CDATA[program_nm(選單名稱) : program_nm(選單名稱)]]></comment>
+	</column>
+	<column name="program_id">
+		<type name="character varying" length="8"/>
+		<comment><![CDATA[program_id(選單程式名稱) : program_id(選單程式名稱)]]></comment>
+	</column>
+	<column name="program_par">
+		<type name="character varying" length="50"/>
+		<comment><![CDATA[program_par(程式參數) : program_par(程式參數)]]></comment>
+	</column>
+	<column name="program_wintype">
+		<type name="character varying" length="1"/>
+		<comment><![CDATA[program_wintype(視窗型態) : 0.最小
+
+9.最大]]></comment>
+	</column>
+	<column name="program_effective">
+		<type name="bigint" length="0"/>
+		<comment><![CDATA[program_effective(選單生效註記) : program_effective(選單生效註記)]]></comment>
+	</column>
+	<column name="program_memo">
+		<type name="text" length="0"/>
+		<comment><![CDATA[program_memo(選單說明) : program_memo(選單說明)]]></comment>
+	</column>
+	<column name="modify_user" not-null="true" sequence="public.s_programd_modify_user_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[modify_USER(異動人) : modify_USER(異動人)]]></comment>
+	</column>
+	<column name="modify_dt">
+		<type name="character varying" length="23"/>
+		<comment><![CDATA[modify_dt(異動時間) : modify_dt(異動時間)
+currentDateTime().toString('yyyy/MM/dd HH:mm:ss:zzz')]]></comment>
+	</column>
+	<constraint name="s_programd_pkey" type="pk-constr" table="public.s_programd">
+		<columns names="pk_s_programd" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="s_userd_pk_s_userd_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="s_userd">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[S_USERD(使用者明細檔)]]></comment>
+	<position x="320" y="878"/>
+	<column name="pk_s_userd" not-null="true" sequence="public.s_userd_pk_s_userd_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_userd(主鍵值_使用者明細檔) : pk_s_userd(主鍵值_使用者明細檔)]]></comment>
+	</column>
+	<column name="pk_s_userm" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_userm(主鍵值_使用者主檔) : pk_s_userm(主鍵值_使用者主檔)]]></comment>
+	</column>
+	<column name="pk_s_kindd" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_kindd(主鍵值_類別明細) : pk_s_kindd(主鍵值_類別明細)]]></comment>
+	</column>
+	<column name="user_kindd_nm" not-null="true">
+		<type name="character varying" length="50"/>
+		<comment><![CDATA[user_kindd_nm(類別明細內容) : user_kindd_nm(類別明細內容)]]></comment>
+	</column>
+	<constraint name="s_userd_pkey" type="pk-constr" table="public.s_userd">
+		<columns names="pk_s_userd" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="s_userlimited_pk_s_userlimited_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="s_userlimited">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[S_USERLIMITED(使用者權限檔)]]></comment>
+	<position x="320" y="278"/>
+	<column name="pk_s_userlimited" not-null="true" sequence="public.s_userlimited_pk_s_userlimited_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_userlimited(主鍵值_使用者權限) : pk_s_userlimited(主鍵值)]]></comment>
+	</column>
+	<column name="pk_s_userm">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_userm(主鍵值_使用者主檔) : pk_s_userm(主鍵值_使用者主檔)]]></comment>
+	</column>
+	<column name="pk_s_kindd">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_kindd(主鍵值_類別明細) : pk_s_kindd(主鍵值_類別明細)]]></comment>
+	</column>
+	<column name="pk_s_programd" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_programd(主鍵值_模組選單明細檔) : pk_s_programd(主鍵值_模組選單明細檔)]]></comment>
+	</column>
+	<column name="limited_append">
+		<type name="character varying" length="1"/>
+		<comment><![CDATA[limited_append(新增) : limited_append(新增)]]></comment>
+	</column>
+	<column name="limited_edit">
+		<type name="character varying" length="1"/>
+		<comment><![CDATA[limited_edit(修改) : limited_edit(修改)]]></comment>
+	</column>
+	<column name="limited_delete">
+		<type name="character varying" length="1"/>
+		<comment><![CDATA[limited_delete(刪除) : limited_delete(刪除)]]></comment>
+	</column>
+	<column name="limited_find">
+		<type name="character varying" length="1"/>
+		<comment><![CDATA[limited_find(查詢) : limited_find(查詢)]]></comment>
+	</column>
+	<column name="limited_print">
+		<type name="character varying" length="1"/>
+		<comment><![CDATA[limited_print(列印) : limited_print(列印)]]></comment>
+	</column>
+	<constraint name="s_userlimited_pkey" type="pk-constr" table="public.s_userlimited">
+		<columns names="pk_s_userlimited" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="s_userm_pk_s_userm_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<sequence name="s_userm_modify_user_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<table name="s_userm">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[S_USERM(使用者主檔)]]></comment>
+	<position x="320" y="538"/>
+	<column name="pk_s_userm" not-null="true" sequence="public.s_userm_pk_s_userm_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[pk_s_userm(主鍵值_使用者主檔) : pk_s_userm(主鍵值_使用者主檔)]]></comment>
+	</column>
+	<column name="factory_no" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[FACTORY_NO(廠別代號) : Factory_no(廠別代號) 由 KINDD 而來]]></comment>
+	</column>
+	<column name="user_id" not-null="true">
+		<type name="character varying" length="20"/>
+		<comment><![CDATA[user_id(使用者ID) : user_id(使用者ID)]]></comment>
+	</column>
+	<column name="user_nm" not-null="true">
+		<type name="character varying" length="30"/>
+		<comment><![CDATA[user_nm(使用者名稱) : user_nm(使用者名稱)]]></comment>
+	</column>
+	<column name="user_pswd" not-null="true">
+		<type name="character varying" length="15"/>
+		<comment><![CDATA[user_pswd(使用者密碼) : user_pswd(使用者密碼)]]></comment>
+	</column>
+	<column name="user_suspended" default-value="0">
+		<type name="bigint" length="0"/>
+		<comment><![CDATA[user_suspended(停權) : user_suspended(停權)
+0:Yes
+1:No]]></comment>
+	</column>
+	<column name="user_factory_mk">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[user_factory_mk(跨廠註記) : user_factory_mk(跨廠註記)]]></comment>
+	</column>
+	<column name="user_marked" default-value="'1'::bpchar">
+		<type name="character" length="1"/>
+		<comment><![CDATA[user_marked(使用者註記) : user_marked(使用者註記)
+1.一般使用者
+9.超級使用者
+
+]]></comment>
+	</column>
+	<column name="modify_user" not-null="true" sequence="public.s_userm_modify_user_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[modify_USER(異動人) : modify_USER(異動人)]]></comment>
+	</column>
+	<column name="modify_dt">
+		<type name="character varying" length="23"/>
+		<comment><![CDATA[modify_dt(異動時間) : modify_dt(異動時間)
+currentDateTime().toString('yyyy/MM/dd HH:mm:ss:zzz')]]></comment>
+	</column>
+	<column name="user_photo">
+		<type name="bytea" length="0"/>
+		<comment><![CDATA[user_photo(相片) : user_photo(相片)]]></comment>
+	</column>
+	<constraint name="s_userm_pkey" type="pk-constr" table="public.s_userm">
+		<columns names="pk_s_userm" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="s_userm_user_id_key" type="uq-constr" table="public.s_userm">
+		<columns names="user_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<index name="id_flowchart_1" table="public.s_flowchart"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="flowchart_no"/>
+		</idxelement>
+</index>
+
+<index name="id_flowchartd" table="public.s_flowchartd"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="pk_s_flowchartd"/>
+		</idxelement>
+</index>
+
+<index name="id_kindd" table="public.s_kindd"
+	 concurrent="false" unique="false" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="pk_s_kindd"/>
+		</idxelement>
+</index>
+
+<index name="id_s_modulem" table="public.s_modulem"
+	 concurrent="false" unique="true" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="module_seq"/>
+		</idxelement>
+</index>
+
+<index name="id_multilanguage" table="public.s_multilanguage"
+	 concurrent="false" unique="true" fast-update="false" buffering="false"
+	 index-type="btree" factor="90">
+		<idxelement use-sorting="false">
+			<column name="pk_s_multilanguage"/>
+		</idxelement>
+		<idxelement use-sorting="false">
+			<column name="language_source"/>
+		</idxelement>
+</index>
+
+<sequence name="table1_idtable1_sequence"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<sequence name="table1_table1col_sequence"
+	 start="1" increment="1"
+	 min-value="1" max-value="9223372036854775807"
+	 cache="1" cycle="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+</sequence>
+
+<domain name="modify_dt" constraint="modify_dt" not-null="false">
+	<schema name="public"/>
+	<role name="testdb"/>
+	<comment><![CDATA[異動時間]]></comment>
+		<type name="character varying" length="23"/>
+</domain>
+
+<constraint name="customd_pk_customm_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.customm" table="public.customd">
+	<columns names="pk_customm" ref-type="src-columns"/>
+	<columns names="pk_customm" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="customdbrandm_pk_brandm_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.brandm" table="public.customdbrandm">
+	<columns names="pk_brandm" ref-type="src-columns"/>
+	<columns names="pk_brandm" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="customdbrandm_pk_customd_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.customd" table="public.customdbrandm">
+	<columns names="pk_customd" ref-type="src-columns"/>
+	<columns names="pk_customd" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="customm_customm_type_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.s_kindd" table="public.customm">
+	<columns names="customm_type" ref-type="src-columns"/>
+	<columns names="pk_s_kindd" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="customs_pk_customd_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.customd" table="public.customs">
+	<columns names="pk_customd" ref-type="src-columns"/>
+	<columns names="pk_customd" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="customs_pk_s_kindd_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.s_kindd" table="public.customs">
+	<columns names="pk_s_kindd" ref-type="src-columns"/>
+	<columns names="pk_s_kindd" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="matm_pk_colorm_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.colorm" table="public.matm">
+	<columns names="pk_colorm" ref-type="src-columns"/>
+	<columns names="pk_colorm" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="matm_pk_s_kindm_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.s_kindm" table="public.matm">
+	<columns names="pk_s_kindm" ref-type="src-columns"/>
+	<columns names="pk_s_kindm" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="matvendorm_pk_matm_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.matm" table="public.matvendorm">
+	<columns names="pk_matm" ref-type="src-columns"/>
+	<columns names="pk_matm" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="matvendorm_pk_vendorm_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.vendorm" table="public.matvendorm">
+	<columns names="pk_vendorm" ref-type="src-columns"/>
+	<columns names="pk_vendorm" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="partm_pk_s_kindd_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.s_kindd" table="public.partm">
+	<columns names="pk_s_kindd" ref-type="src-columns"/>
+	<columns names="pk_s_kindd" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="preprdmatd_pk_matm_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.matm" table="public.preprdmatd">
+	<columns names="pk_matm" ref-type="src-columns"/>
+	<columns names="pk_matm" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="preprdmatd_pk_preprdmatm_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.preprdmatm" table="public.preprdmatd">
+	<columns names="pk_preprdmatm" ref-type="src-columns"/>
+	<columns names="pk_preprdmatm" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="preprdmatm_pk_matm_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.matm" table="public.preprdmatm">
+	<columns names="pk_matm" ref-type="src-columns"/>
+	<columns names="pk_matm" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="sizes_pk_s_kindd_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.s_kindd" table="public.sizes">
+	<columns names="pk_s_kindd" ref-type="src-columns"/>
+	<columns names="pk_s_kindd" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="vendord_pk_vendorm_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.vendorm" table="public.vendord">
+	<columns names="pk_vendorm" ref-type="src-columns"/>
+	<columns names="pk_vendorm" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="vendorm_vendorm_taxsource_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.s_kindd" table="public.vendorm">
+	<columns names="vendorm_taxsource" ref-type="src-columns"/>
+	<columns names="pk_s_kindd" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="vendorm_vendorm_kind_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.s_kindd" table="public.vendorm">
+	<columns names="vendorm_kind" ref-type="src-columns"/>
+	<columns names="pk_s_kindd" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="vendorm_vendorm_payment_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.s_kindd" table="public.vendorm">
+	<columns names="vendorm_payment" ref-type="src-columns"/>
+	<columns names="pk_s_kindd" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="vendorm_vendorm_type_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.s_kindd" table="public.vendorm">
+	<columns names="vendorm_type" ref-type="src-columns"/>
+	<columns names="pk_s_kindd" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="vendorm_vendorm_coin_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.s_kindd" table="public.vendorm">
+	<columns names="vendorm_coin" ref-type="src-columns"/>
+	<columns names="pk_s_kindd" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="vendorm_vendorm_tradeticket_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.s_kindd" table="public.vendorm">
+	<columns names="vendorm_tradeticket" ref-type="src-columns"/>
+	<columns names="pk_s_kindd" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="vendorm_vendorm_purchasepolicy_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.s_kindd" table="public.vendorm">
+	<columns names="vendorm_purchasepolicy" ref-type="src-columns"/>
+	<columns names="pk_s_kindd" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="vendors_pk_vendord_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.vendord" table="public.vendors">
+	<columns names="pk_vendord" ref-type="src-columns"/>
+	<columns names="pk_vendord" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="vendors_pk_s_kindm_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.s_kindm" table="public.vendors">
+	<columns names="pk_s_kindm" ref-type="src-columns"/>
+	<columns names="pk_s_kindm" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_flowchart_d" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.s_flowchart" table="public.s_flowchartd">
+	<columns names="pk_s_flowchart" ref-type="src-columns"/>
+	<columns names="pk_s_flowchart" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="s_groupuserm_pk_s_kindd_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.s_kindd" table="public.s_groupuserm">
+	<columns names="pk_s_kindd" ref-type="src-columns"/>
+	<columns names="pk_s_kindd" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="s_groupuserm_pk_s_userm_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.s_userm" table="public.s_groupuserm">
+	<columns names="pk_s_userm" ref-type="src-columns"/>
+	<columns names="pk_s_userm" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_pk_s_kindm_d" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.s_kindm" table="public.s_kindd">
+	<columns names="pk_s_kindm" ref-type="src-columns"/>
+	<columns names="pk_s_kindm" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="s_multilanguage_pk_s_language_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.s_languagenm" table="public.s_multilanguage">
+	<columns names="pk_s_language" ref-type="src-columns"/>
+	<columns names="pk_s_language" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="s_programd_pk_s_modulem_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.s_modulem" table="public.s_programd">
+	<columns names="pk_s_modulem" ref-type="src-columns"/>
+	<columns names="pk_s_modulem" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="s_userd_pk_s_kindd_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.s_kindd" table="public.s_userd">
+	<columns names="pk_s_kindd" ref-type="src-columns"/>
+	<columns names="pk_s_kindd" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="s_userd_pk_s_userm_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.s_userm" table="public.s_userd">
+	<columns names="pk_s_userm" ref-type="src-columns"/>
+	<columns names="pk_s_userm" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="s_userlimited_pk_s_kindd_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.s_kindd" table="public.s_userlimited">
+	<columns names="pk_s_kindd" ref-type="src-columns"/>
+	<columns names="pk_s_kindd" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="s_userlimited_pk_s_programd_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.s_programd" table="public.s_userlimited">
+	<columns names="pk_s_programd" ref-type="src-columns"/>
+	<columns names="pk_s_programd" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="s_userlimited_pk_s_userm_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.s_userm" table="public.s_userlimited">
+	<columns names="pk_s_userm" ref-type="src-columns"/>
+	<columns names="pk_s_userm" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="s_userm_factory_no_fkey" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.s_kindd" table="public.s_userm">
+	<columns names="factory_no" ref-type="src-columns"/>
+	<columns names="pk_s_kindd" ref-type="dst-columns"/>
+</constraint>
+
+<relationship name="rel_customd_customm" type="relfk"
+	 custom-color="#d720ba"
+	 src-table="public.customd"
+	 dst-table="public.customm"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_customdbrandm_brandm" type="relfk"
+	 custom-color="#19637d"
+	 src-table="public.customdbrandm"
+	 dst-table="public.brandm"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_customdbrandm_customd" type="relfk"
+	 custom-color="#6c1ab9"
+	 src-table="public.customdbrandm"
+	 dst-table="public.customd"
+	 src-required="false" dst-required="false">
+	<line>
+		<position x="1180" y="920"/>
+	<position x="1180" y="360"/>
+	</line>
+</relationship>
+
+<relationship name="rel_customm_s_kindd" type="relfk"
+	 custom-color="#4b92bf"
+	 src-table="public.customm"
+	 dst-table="public.s_kindd"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_customs_customd" type="relfk"
+	 custom-color="#9d683c"
+	 src-table="public.customs"
+	 dst-table="public.customd"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_customs_s_kindd" type="relfk"
+	 custom-color="#b0bc2c"
+	 src-table="public.customs"
+	 dst-table="public.s_kindd"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_matm_colorm" type="relfk"
+	 custom-color="#8251fa"
+	 src-table="public.matm"
+	 dst-table="public.colorm"
+	 src-required="false" dst-required="false">
+	<line>
+		<position x="900" y="1580"/>
+	<position x="900" y="1760"/>
+	</line>
+</relationship>
+
+<relationship name="rel_matm_s_kindm" type="relfk"
+	 custom-color="#a97a6c"
+	 src-table="public.matm"
+	 dst-table="public.s_kindm"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_matvendorm_matm" type="relfk"
+	 custom-color="#f3488e"
+	 src-table="public.matvendorm"
+	 dst-table="public.matm"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_matvendorm_vendorm" type="relfk"
+	 custom-color="#6005e9"
+	 src-table="public.matvendorm"
+	 dst-table="public.vendorm"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_partm_s_kindd" type="relfk"
+	 custom-color="#a32ae9"
+	 src-table="public.partm"
+	 dst-table="public.s_kindd"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_preprdmatd_matm" type="relfk"
+	 custom-color="#6088fa"
+	 src-table="public.preprdmatd"
+	 dst-table="public.matm"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_preprdmatd_preprdmatm" type="relfk"
+	 custom-color="#12b4ba"
+	 src-table="public.preprdmatd"
+	 dst-table="public.preprdmatm"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_preprdmatm_matm" type="relfk"
+	 custom-color="#ec7491"
+	 src-table="public.preprdmatm"
+	 dst-table="public.matm"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_sizes_s_kindd" type="relfk"
+	 custom-color="#9e0d70"
+	 src-table="public.sizes"
+	 dst-table="public.s_kindd"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_vendord_vendorm" type="relfk"
+	 custom-color="#c766d1"
+	 src-table="public.vendord"
+	 dst-table="public.vendorm"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_vendorm_s_kindd" type="relfk"
+	 custom-color="#2a98a8"
+	 src-table="public.vendorm"
+	 dst-table="public.s_kindd"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_vendors_vendord" type="relfk"
+	 custom-color="#4a8d38"
+	 src-table="public.vendors"
+	 dst-table="public.vendord"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_vendors_s_kindm" type="relfk"
+	 custom-color="#288114"
+	 src-table="public.vendors"
+	 dst-table="public.s_kindm"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_s_flowchartd_s_flowchart" type="relfk"
+	 custom-color="#dd0c08"
+	 src-table="public.s_flowchartd"
+	 dst-table="public.s_flowchart"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_s_groupuserm_s_kindd" type="relfk"
+	 custom-color="#39a7df"
+	 src-table="public.s_groupuserm"
+	 dst-table="public.s_kindd"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_s_groupuserm_s_userm" type="relfk"
+	 custom-color="#1dbd02"
+	 src-table="public.s_groupuserm"
+	 dst-table="public.s_userm"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_s_kindd_s_kindm" type="relfk"
+	 custom-color="#894327"
+	 src-table="public.s_kindd"
+	 dst-table="public.s_kindm"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_s_multilanguage_s_languagenm" type="relfk"
+	 custom-color="#232643"
+	 src-table="public.s_multilanguage"
+	 dst-table="public.s_languagenm"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_s_programd_s_modulem" type="relfk"
+	 custom-color="#90d9a0"
+	 src-table="public.s_programd"
+	 dst-table="public.s_modulem"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_s_userd_s_kindd" type="relfk"
+	 custom-color="#5a853a"
+	 src-table="public.s_userd"
+	 dst-table="public.s_kindd"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_s_userd_s_userm" type="relfk"
+	 custom-color="#6cc9e0"
+	 src-table="public.s_userd"
+	 dst-table="public.s_userm"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_s_userlimited_s_kindd" type="relfk"
+	 custom-color="#886a2b"
+	 src-table="public.s_userlimited"
+	 dst-table="public.s_kindd"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_s_userlimited_s_programd" type="relfk"
+	 custom-color="#390eac"
+	 src-table="public.s_userlimited"
+	 dst-table="public.s_programd"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_s_userlimited_s_userm" type="relfk"
+	 custom-color="#4ba0bf"
+	 src-table="public.s_userlimited"
+	 dst-table="public.s_userm"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_s_userm_s_kindd" type="relfk"
+	 custom-color="#1f15fe"
+	 src-table="public.s_userm"
+	 dst-table="public.s_kindd"
+	 src-required="false" dst-required="false"/>
+
+<permission>
+	<object name="testdb" type="database"/>
+	<privileges create="true" connect="true" temporary="true"/>
+</permission>
+<permission>
+	<object name="testdb" type="database"/>
+	<roles names="testdb"/>
+	<privileges create="true" connect="true" temporary="true"/>
+</permission>
+</dbmodel>

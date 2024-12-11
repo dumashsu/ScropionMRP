@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Alert" id="1" x="128" y="72" text="Alert&#xA;This is an alert message&#xA;OK,Cancel" measuredWidth="219" measuredHeight="132" icon="warning (large)">
+    <items x="29" y="93" width="80" height="24" text="OK"/>
+    <items x="124" y="93" width="80" height="24" text="Cancel"/>
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Combo" id="2" x="524" y="392" text="Combo&#xD;&#xA;kljl&#xD;&#xA;jhkjl&#xD;&#xA;lkjlkj&#xD;&#xA;;llk;lk" measuredWidth="70" measuredHeight="107">
+    <font/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>
