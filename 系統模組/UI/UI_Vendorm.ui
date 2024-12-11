@@ -1,0 +1,773 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="1,12">
+   <property name="spacing">
+    <number>2</number>
+   </property>
+   <property name="leftMargin">
+    <number>2</number>
+   </property>
+   <property name="topMargin">
+    <number>2</number>
+   </property>
+   <property name="rightMargin">
+    <number>2</number>
+   </property>
+   <property name="bottomMargin">
+    <number>2</number>
+   </property>
+   <item>
+    <widget class="QFrame" name="create_filterframe">
+     <property name="font">
+      <font>
+       <family>新細明體</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="c_lb_no_filter">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>10</y>
+        <width>81</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>供應商編號:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="c_le_no_filter">
+      <property name="geometry">
+       <rect>
+        <x>85</x>
+        <y>10</y>
+        <width>113</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="c_lb_nm_filter">
+      <property name="geometry">
+       <rect>
+        <x>215</x>
+        <y>10</y>
+        <width>36</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>簡稱:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="c_le_nm_filter">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>10</y>
+        <width>96</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QSplitter" name="main_splitter">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QTableView" name="c_tableView_vendrom"/>
+     <widget class="QSplitter" name="splitter_center">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <widget class="QFrame" name="create_mainframe">
+       <property name="font">
+        <font>
+         <family>新細明體</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLineEdit" name="c_le_no">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>10</y>
+          <width>113</width>
+          <height>26</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="c_lb_no">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>81</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>供應商編號:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="c_lb_nm">
+        <property name="geometry">
+         <rect>
+          <x>425</x>
+          <y>10</y>
+          <width>36</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>簡稱:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="c_le_nm">
+        <property name="geometry">
+         <rect>
+          <x>460</x>
+          <y>10</y>
+          <width>96</width>
+          <height>26</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="c_lb_f_nm">
+        <property name="geometry">
+         <rect>
+          <x>55</x>
+          <y>40</y>
+          <width>36</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>全名:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="c_le_f_nm">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>40</y>
+          <width>471</width>
+          <height>26</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="c_lb_uni_no">
+        <property name="geometry">
+         <rect>
+          <x>25</x>
+          <y>70</y>
+          <width>66</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>統一編號:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="c_le_uni_no">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>70</y>
+          <width>101</width>
+          <height>26</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="c_lb_type">
+        <property name="geometry">
+         <rect>
+          <x>245</x>
+          <y>70</y>
+          <width>36</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>類別:</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="c_cbb_type">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>70</y>
+          <width>72</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>A.皮類</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="c_lb_kind">
+        <property name="geometry">
+         <rect>
+          <x>425</x>
+          <y>70</y>
+          <width>36</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>性質:</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="c_cbb_kind">
+        <property name="geometry">
+         <rect>
+          <x>460</x>
+          <y>70</y>
+          <width>72</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>1.內銷</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="c_lb_purchasepolicy">
+        <property name="geometry">
+         <rect>
+          <x>25</x>
+          <y>100</y>
+          <width>66</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>採購政策:</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="c_cbb_purchasepolicy">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>100</y>
+          <width>86</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>1.當地購</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="c_lb_tradeticket">
+        <property name="geometry">
+         <rect>
+          <x>215</x>
+          <y>100</y>
+          <width>66</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>交易票據:</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="c_cbb_tradeticket">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>100</y>
+          <width>86</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>1.開票</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="c_lb_ticketrate">
+        <property name="geometry">
+         <rect>
+          <x>395</x>
+          <y>100</y>
+          <width>66</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>票據比率:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="c_le_ticketrate">
+        <property name="geometry">
+         <rect>
+          <x>460</x>
+          <y>100</y>
+          <width>31</width>
+          <height>26</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="c_lb_taxsource">
+        <property name="geometry">
+         <rect>
+          <x>25</x>
+          <y>130</y>
+          <width>66</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>稅金來源:</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="c_cbb_taxsource">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>130</y>
+          <width>101</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>1.票面金額</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLineEdit" name="c_le_taxrate">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>130</y>
+          <width>26</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="c_lb_taxrate">
+        <property name="geometry">
+         <rect>
+          <x>215</x>
+          <y>130</y>
+          <width>66</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>稅金比率:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="c_lb_deductrate">
+        <property name="geometry">
+         <rect>
+          <x>395</x>
+          <y>130</y>
+          <width>66</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>扣款比率:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="c_le_deductrate">
+        <property name="geometry">
+         <rect>
+          <x>460</x>
+          <y>130</y>
+          <width>31</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="c_cbb_payment">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>160</y>
+          <width>101</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>1.月結30天</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="c_lb_payment">
+        <property name="geometry">
+         <rect>
+          <x>25</x>
+          <y>160</y>
+          <width>66</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>交易方式:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="c_lb_payday">
+        <property name="geometry">
+         <rect>
+          <x>215</x>
+          <y>160</y>
+          <width>66</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>付款天數:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="c_le_payday">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>160</y>
+          <width>41</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="c_lb_coin">
+        <property name="geometry">
+         <rect>
+          <x>395</x>
+          <y>160</y>
+          <width>66</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>交易幣別:</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="c_cbb_coin">
+        <property name="geometry">
+         <rect>
+          <x>460</x>
+          <y>160</y>
+          <width>86</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>U.美金</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="c_lb_manager">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>190</y>
+          <width>51</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>負責人:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="c_le_manager">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>190</y>
+          <width>101</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="c_le_expirydate">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>190</y>
+          <width>101</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="c_lb_expirydate">
+        <property name="geometry">
+         <rect>
+          <x>215</x>
+          <y>190</y>
+          <width>66</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>停用日期:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="c_lb_address">
+        <property name="geometry">
+         <rect>
+          <x>55</x>
+          <y>215</y>
+          <width>36</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>地址:</string>
+        </property>
+       </widget>
+       <widget class="QTextEdit" name="c_te_address">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>220</y>
+          <width>466</width>
+          <height>51</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="c_lb_modify_user">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>275</y>
+          <width>49</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>新細明體</family>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>異動人:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="c_le_modify_user">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>275</y>
+          <width>116</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>新細明體</family>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>DumasHsu</string>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="c_le_modify_dt">
+        <property name="geometry">
+         <rect>
+          <x>430</x>
+          <y>275</y>
+          <width>125</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>新細明體</family>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>2016/11/29 13:20:11</string>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QLabel" name="c_lb_modify_dt">
+        <property name="geometry">
+         <rect>
+          <x>365</x>
+          <y>275</y>
+          <width>66</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>新細明體</family>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>異動時間:</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QSplitter" name="splitter_vendord_s">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <widget class="QTableView" name="c_tableView_vendord"/>
+       <widget class="QTableView" name="v_tableView_vendors"/>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget">
+      <layout class="QVBoxLayout" name="pb_vbox">
+       <property name="spacing">
+        <number>2</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="c_pb_append">
+         <property name="text">
+          <string>新增</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="c_pb_edit">
+         <property name="text">
+          <string>修改</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="c_pb_delete">
+         <property name="text">
+          <string>刪除</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="c_pb_save">
+         <property name="text">
+          <string>儲存</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="c_pb_quit">
+         <property name="text">
+          <string>離開</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+  <zorder>horizontalLayoutWidget</zorder>
+  <zorder>verticalLayoutWidget</zorder>
+  <zorder>lineEdit</zorder>
+  <zorder>create_mainframe</zorder>
+  <zorder>c_tableView_vendord</zorder>
+  <zorder>v_tableView_vendors</zorder>
+  <zorder>horizontalLayoutWidget</zorder>
+  <zorder>create_filterframe</zorder>
+ </widget>
+ <tabstops>
+  <tabstop>c_le_no</tabstop>
+  <tabstop>c_le_nm</tabstop>
+  <tabstop>c_le_f_nm</tabstop>
+  <tabstop>c_le_uni_no</tabstop>
+  <tabstop>c_cbb_type</tabstop>
+  <tabstop>c_cbb_kind</tabstop>
+  <tabstop>c_cbb_purchasepolicy</tabstop>
+  <tabstop>c_cbb_tradeticket</tabstop>
+  <tabstop>c_le_ticketrate</tabstop>
+  <tabstop>c_cbb_taxsource</tabstop>
+  <tabstop>c_le_taxrate</tabstop>
+  <tabstop>c_le_deductrate</tabstop>
+  <tabstop>c_cbb_payment</tabstop>
+  <tabstop>c_le_payday</tabstop>
+  <tabstop>c_cbb_coin</tabstop>
+  <tabstop>c_le_manager</tabstop>
+  <tabstop>c_le_expirydate</tabstop>
+  <tabstop>c_te_address</tabstop>
+  <tabstop>c_pb_append</tabstop>
+  <tabstop>c_pb_edit</tabstop>
+  <tabstop>c_pb_delete</tabstop>
+  <tabstop>c_pb_save</tabstop>
+  <tabstop>c_pb_quit</tabstop>
+  <tabstop>c_le_no_filter</tabstop>
+  <tabstop>c_le_nm_filter</tabstop>
+  <tabstop>c_tableView_vendord</tabstop>
+  <tabstop>v_tableView_vendors</tabstop>
+  <tabstop>c_le_modify_user</tabstop>
+  <tabstop>c_le_modify_dt</tabstop>
+  <tabstop>c_tableView_vendrom</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

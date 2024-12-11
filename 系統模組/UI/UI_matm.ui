@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QSplitter" name="main_splitter">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>5</y>
+     <width>866</width>
+     <height>481</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+   <property name="handleWidth">
+    <number>1</number>
+   </property>
+   <widget class="QFrame" name="filter_frame">
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="c_le_mat_no_filter">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>15</y>
+       <width>96</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>ABCDEFGHIJ</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="c_lb_mat_no_filter">
+     <property name="geometry">
+      <rect>
+       <x>5</x>
+       <y>15</y>
+       <width>66</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>材料編號:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="c_le_mat_nm_filter">
+     <property name="geometry">
+      <rect>
+       <x>255</x>
+       <y>15</y>
+       <width>431</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="c_lb_mat_nm_filter">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>15</y>
+       <width>91</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>材料名稱(中):</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QSplitter" name="hbox_splitter">
+    <property name="lineWidth">
+     <number>0</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+    <property name="handleWidth">
+     <number>0</number>
+    </property>
+    <widget class="QTableView" name="c_tv_matm_filter"/>
+    <widget class="QSplitter" name="vbox_splitter">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="handleWidth">
+      <number>0</number>
+     </property>
+     <widget class="QFrame" name="main_frame">
+      <property name="font">
+       <font>
+        <family>新細明體</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLineEdit" name="c_le_mat_no">
+       <property name="geometry">
+        <rect>
+         <x>95</x>
+         <y>15</y>
+         <width>96</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>ABCDEFGHIJ</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="c_lb_mat_no">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>15</y>
+         <width>66</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>材料編號:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="c_lb_color_no">
+       <property name="geometry">
+        <rect>
+         <x>205</x>
+         <y>15</y>
+         <width>66</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>顏色編號:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="c_le_color_no">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>15</y>
+         <width>96</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>ABCDEFGHIJ</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="c_lb_color_nm">
+       <property name="geometry">
+        <rect>
+         <x>370</x>
+         <y>15</y>
+         <width>156</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(221, 221, 221);</string>
+       </property>
+       <property name="text">
+        <string>顏色名稱</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="c_lb_mat_nm">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>45</y>
+         <width>91</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>材料名稱(中):</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="c_le_mat_nm">
+       <property name="geometry">
+        <rect>
+         <x>95</x>
+         <y>45</y>
+         <width>431</width>
+         <height>56</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="c_lb_mat_nm_en">
+       <property name="geometry">
+        <rect>
+         <x>65</x>
+         <y>105</y>
+         <width>36</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>(英):</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="c_le_mat_nm_en">
+       <property name="geometry">
+        <rect>
+         <x>95</x>
+         <y>105</y>
+         <width>431</width>
+         <height>56</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="c_lb_kindd_nm">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>165</y>
+         <width>66</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>單位名稱:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="c_le_kindd_nm">
+       <property name="geometry">
+        <rect>
+         <x>95</x>
+         <y>165</y>
+         <width>66</width>
+         <height>26</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="c_lb_process_mk">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>165</y>
+         <width>66</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>加工材料:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="c_le_process_mk">
+       <property name="geometry">
+        <rect>
+         <x>285</x>
+         <y>165</y>
+         <width>66</width>
+         <height>26</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="c_lb_exceed_rec_mk">
+       <property name="geometry">
+        <rect>
+         <x>395</x>
+         <y>165</y>
+         <width>66</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>超交允收:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="c_le_exceed_rec_mk">
+       <property name="geometry">
+        <rect>
+         <x>460</x>
+         <y>165</y>
+         <width>21</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Y</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="c_lb_onway_qty">
+       <property name="geometry">
+        <rect>
+         <x>45</x>
+         <y>195</y>
+         <width>51</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>在途量:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="c_le_onway_qty">
+       <property name="geometry">
+        <rect>
+         <x>95</x>
+         <y>195</y>
+         <width>96</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string>999,999,999.99</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="c_le_safestk_qty">
+       <property name="geometry">
+        <rect>
+         <x>285</x>
+         <y>195</y>
+         <width>101</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string>999,999,999.99</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="c_lb_safestk_qty">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>195</y>
+         <width>66</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>安全存量:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="c_le_purchase_day">
+       <property name="geometry">
+        <rect>
+         <x>460</x>
+         <y>195</y>
+         <width>31</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string>999</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="c_lb_purchase_day">
+       <property name="geometry">
+        <rect>
+         <x>410</x>
+         <y>195</y>
+         <width>51</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>購備期:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="c_le_unit_price">
+       <property name="geometry">
+        <rect>
+         <x>95</x>
+         <y>225</y>
+         <width>101</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string>999,999.9999</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="c_lb_unit_price">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>225</y>
+         <width>36</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>單價:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="c_lb_stop_user">
+       <property name="geometry">
+        <rect>
+         <x>235</x>
+         <y>225</y>
+         <width>51</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>停用人:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="c_le_stop_user">
+       <property name="geometry">
+        <rect>
+         <x>285</x>
+         <y>225</y>
+         <width>101</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="c_lb_stop_date">
+       <property name="geometry">
+        <rect>
+         <x>395</x>
+         <y>225</y>
+         <width>66</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>停用日期:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="c_le_stop_date">
+       <property name="geometry">
+        <rect>
+         <x>460</x>
+         <y>225</y>
+         <width>71</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string>2017/01/20</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="c_lb_modify_user">
+       <property name="geometry">
+        <rect>
+         <x>45</x>
+         <y>255</y>
+         <width>51</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>異動人:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="c_le_modify_user">
+       <property name="geometry">
+        <rect>
+         <x>95</x>
+         <y>255</y>
+         <width>101</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="c_lb_modify_dt">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>255</y>
+         <width>66</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>異動日期:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="c_le_modify_dt">
+       <property name="geometry">
+        <rect>
+         <x>285</x>
+         <y>255</y>
+         <width>71</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QTableView" name="c_tv_matvendorm"/>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <layout class="QVBoxLayout" name="pb_vbox">
+      <property name="spacing">
+       <number>2</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="c_pb_append">
+        <property name="text">
+         <string>新增</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="c_pb_edit">
+        <property name="text">
+         <string>修改</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="c_pb_delete">
+        <property name="text">
+         <string>刪除</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="c_pb_save">
+        <property name="text">
+         <string>儲存</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="c_pb_quit">
+        <property name="text">
+         <string>離開</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

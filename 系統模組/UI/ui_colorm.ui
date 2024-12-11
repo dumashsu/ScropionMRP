@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QSplitter" name="splitter">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>35</y>
+     <width>786</width>
+     <height>346</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+   <widget class="QFrame" name="c_frame">
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLineEdit" name="c_le_color_no_filter">
+     <property name="geometry">
+      <rect>
+       <x>61</x>
+       <y>10</y>
+       <width>102</width>
+       <height>26</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="c_lb_color_no_filter">
+     <property name="geometry">
+      <rect>
+       <x>5</x>
+       <y>10</y>
+       <width>52</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>顏色代號:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="c_lb_color_nm_filter">
+     <property name="geometry">
+      <rect>
+       <x>167</x>
+       <y>10</y>
+       <width>52</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>顏色名稱:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="c_le_color_nm_filter">
+     <property name="geometry">
+      <rect>
+       <x>223</x>
+       <y>10</y>
+       <width>102</width>
+       <height>26</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QTableView" name="c_tv_color"/>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
